@@ -51,9 +51,4 @@ final class Currency
     {
         return $this->code === $other->getCode() && $this->precision === $other->getPrecision() && $this->exponent === $other->getExponent();
     }
-
-    public static function getCurrencyUSD(): self
-    {
-        return new self(self::USD_CODE, self::USD_EXPONENT, self::USD_PRECISION);
-    }
 }
