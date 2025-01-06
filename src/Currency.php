@@ -12,8 +12,8 @@ final class Currency
     public const EUR_CODE = 'EUR';
     public const GBP_CODE = 'GBP';
     
-    public const USD_EXPONENT = 2;
-    public const USD_PRECISION = 4;
+    public const BASE_EXPONENT = 2;
+    public const BASE_PRECISION = 4;
 
     public function __construct(
         private string $code, 
