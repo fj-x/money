@@ -43,8 +43,33 @@ final class Money
         return $this->currency->getNumericCode();
     }
 
-    public function isSameCurrency(self $other): bool
+    public function isSameCurrency(self $money): bool
     {
-        return $this->currency->equals($other->currency());
+        return $this->currency->equals($money->currency());
+    }
+
+    public function compare(self $money): int
+    {
+        return bccomp($this->amount, $money->amount, $this->currency->getPrecision());
+    }
+
+    public function lessThan(self $money): bool
+    {
+        return -1 === $this->compare($money);
+    }
+
+    public function lessThanOrEqual(self $money): bool
+    {
+        return 0 >= $this->compare($money);
+    }
+
+    public function greaterThan(self $money): bool
+    {
+        return 1 === $this->compare($money);
+    }
+
+    public function greaterThanOrEqual(self $money): bool
+    {
+        return 0 <= $this->compare($money);
     }
 }
